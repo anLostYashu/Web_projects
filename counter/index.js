@@ -12,5 +12,5 @@ reset.onclick = function() {
 }
 
 increment.onclick = function() {
-    
+    heading.textContent = Number(heading.textContent) + 1;
 }
