@@ -77,3 +77,20 @@ body {
     cursor: pointer;
     border: white 1px solid;
 }
+
+#copyButton {
+    display: none;
+    position: absolute;
+    left: 27%;
+    height: 6%;
+    width: 6%;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: large;
+    background-color: grey;
+    cursor: pointer;
+}
+
+#copyButton:hover {
+    background: #505050;
+}

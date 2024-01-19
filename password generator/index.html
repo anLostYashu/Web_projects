@@ -2,43 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="wrapper">
-            <div class="header">
-                <span id="output"></span>
-            </div>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">
+        <span id="output"></span>
+        <button id="copyButton">Copy</button>
+      </div>
 
-            <div class="body">
-                <label for="lowercase_box">Include Lowercase: </label>
-                <input type="checkbox" id="lowercase_box">
-                <br><br>
+      <div class="body">
+        <label for="lowercase_box">Include Lowercase: </label>
+        <input type="checkbox" id="lowercase_box" checked />
+        <br /><br />
 
-                <label for="uppercase_box">Include Uppercase: </label>
-                <input type="checkbox" id="uppercase_box">
-                <br><br>
+        <label for="uppercase_box">Include Uppercase: </label>
+        <input type="checkbox" id="uppercase_box" />
+        <br /><br />
 
-                <label for="symbols_box">Include Symbols: </label>
-                <input type="checkbox" id="symbols_box">
-                <br><br>
+        <label for="symbols_box">Include Symbols: </label>
+        <input type="checkbox" id="symbols_box" />
+        <br /><br />
 
-                <label for="numbers_box">Include Numbers: </label>
-                <input type="checkbox" id="numbers_box">
-            </div>
-        </div>
+        <label for="numbers_box">Include Numbers: </label>
+        <input type="checkbox" id="numbers_box" />
+      </div>
     </div>
+  </div>
 
-    <div class="footer">
-        <button id="generate_button" onclick="generatePassword()">Generate</button>
-    </div>
+  <div class="footer">
+    <button id="generate_button">
+      Generate
+    </button>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
