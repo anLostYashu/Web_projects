@@ -46,7 +46,7 @@ body {
 
 .body {
     margin: auto 0;
-    font-size: large;
+    font-size: 15px;
     font-weight: 600;
     width: 80%;
     text-align: center;
@@ -93,4 +93,8 @@ body {
 
 #copyButton:hover {
     background: #505050;
+}
+
+@media(width < 871px) {
+    
 }
