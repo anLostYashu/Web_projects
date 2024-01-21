@@ -94,7 +94,3 @@ body {
 #copyButton:hover {
     background: #505050;
 }
-
-@media(width < 871px) {
-    
-}
