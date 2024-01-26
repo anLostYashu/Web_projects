@@ -62,7 +62,7 @@ body {
     align-items: center;
 }
 
-.footer > button {
+.footer>button {
     position: relative;
     bottom: 10%;
     height: 25%;
@@ -72,7 +72,7 @@ body {
     background: #004900;
 }
 
-.footer > button:hover {
+.footer>button:hover {
     background: #003800;
     cursor: pointer;
     border: white 1px solid;
