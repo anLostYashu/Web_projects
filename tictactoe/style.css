@@ -14,9 +14,9 @@ body {
     justify-content: center;
 }
 
-.container {
+.container button {
     font-size: 5rem;
-    color: green;
+    color: black;
 }
 
 .mid-row {
@@ -35,9 +35,18 @@ body {
 
 #table td {
     text-align: center;
-    height: 115px;
-    width: 110px;
+    height: 125px;
+    width: 120px;
     padding: 10px 20px;
 }
 
-/* 414 649 */
+.game-cell {
+    height: 100%;
+    width: 100%;
+    background-color: hsl(0, 0%, 10%);
+    border: none;
+}
+
+.game-cell-notallowed {
+    cursor: not-allowed;
+}
