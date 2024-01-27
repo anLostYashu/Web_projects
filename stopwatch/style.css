@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.container-stopwatch {
+    color: white;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 10px;
+}
+
+.wrapper-display {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.wrapper-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wrapper-buttons button {
+    height: 40px;
+    width: 80px;
+    border-radius: 25px;
+    border: 2px solid rebeccapurple;
+    background-color: yellowgreen;
+    font-size: 18px;
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+.wrapper-buttons button:hover {
+    cursor: pointer;
+    background-color: hsl(80, 61%, 30%);
+}
+
+.wrapper-buttons button:active {
+    border-color: orange;
+    color: white;
+}
