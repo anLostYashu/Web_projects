@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" class="display" id="display" value="" readonly>
+
+        <div class="wrapper-buttons">
+            <table>
+
+                <tr>
+                    <td>
+                        <button class="button" value="7" onclick="appendValue(this.value)">7</button>
+                    </td>
+                    <td>
+                        <button class="button" value="8" onclick="appendValue(this.value)">8</button>
+                    </td>
+                    <td>
+                        <button class="button" value="9" onclick="appendValue(this.value)">9</button>
+                    </td>
+                    <td>
+                        <button class="button ope" value="+" onclick="appendValue(this.value)">+</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button" value="4" onclick="appendValue(this.value)">4</button>
+                    </td>
+                    <td>
+                        <button class="button" value="5" onclick="appendValue(this.value)">5</button>
+                    </td>
+                    <td>
+                        <button class="button" value="6" onclick="appendValue(this.value)">6</button>
+                    </td>
+                    <td>
+                        <button class="button ope" value="-" onclick="appendValue(this.value)">-</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button" value="1" onclick="appendValue(this.value)">1</button>
+                    </td>
+                    <td>
+                        <button class="button" value="2" onclick="appendValue(this.value)">2</button>
+                    </td>
+                    <td>
+                        <button class="button" value="3" onclick="appendValue(this.value)">3</button>
+                    </td>
+                    <td>
+                        <button class="button ope" value="*" onclick="appendValue(this.value)">*</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="button ope" value="/" onclick="appendValue(this.value)">/</button>
+                    </td>
+                    <td>
+                        <button class="button" value="0" onclick="appendValue(this.value)">0</button>
+                    </td>
+                    <td>
+                        <button class="button ope" value="." onclick="appendValue(this.value)">.</button>
+                    </td>
+                    <td>
+                        <button class="button ope" onclick="calculate()">=</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <button class="button" id="ac-button" onclick="allClear()">AC</button>
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
