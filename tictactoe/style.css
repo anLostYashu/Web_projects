@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     user-select: none;
 }
 
@@ -12,16 +11,16 @@ body {
     width: 100%;
 }
 
+.container button {
+    font-size: 5rem;
+    border: none;
+}
+
 .container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.container button {
-    font-size: 5rem;
-    color: black;
+    transform: translate(-50%, -60%);
 }
 
 .mid-row {
@@ -40,29 +39,25 @@ body {
 
 #table td {
     text-align: center;
-    height: 125px;
-    width: 120px;
-    padding: 10px 20px;
+    height: 130px;
+    width: 130px;
+    padding: 10px;
+}
+
+.game-cell-notallowed {
+    cursor: not-allowed;   
 }
 
 .game-cell {
     height: 100%;
     width: 100%;
-    background-color: hsl(0, 0%,10%);
-    border: none;
-    cursor: pointer;
-    text-decoration: line-through;
-}
-
-.game-cell-notallowed {
-    cursor: not-allowed;
     background-color: hsl(0, 0%, 10%);
-    border: none;
+    cursor: pointer;
 }
 
 #winner-heading {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -35%);
     text-align: center;

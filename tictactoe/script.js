@@ -1,19 +1,27 @@
 let emptySpace = 9;
 let winner;
 
+//assigning buttons to array
+let buttons = [];
+for (let i = 1; i <= 9; i++) {
+    buttons.push(document.getElementById(`cell_${i}`));
+}
+
+//for random first move
 let random = Math.floor(Math.random() * 2);
-if(random == 1){
+if (random == 1) {
     botTurn();
 }
 
-function playerTurn(val){
+function playerTurn(val) {
+
     let button = document.getElementById(`cell_${val}`);
 
     button.style.color = "green";
     button.textContent = "O";
     button.setAttribute("disabled", "");
-    if (button.className !== "game_cell game-cell-notallowed"){
-        button.className = "game_cell game-cell-notallowed";
+    if (button.className !== "game-cell game-cell-notallowed") {
+        button.className = "game-cell game-cell-notallowed";
     }
     emptySpace--;
 
@@ -21,9 +29,9 @@ function playerTurn(val){
     botTurn();
 }
 
-function botTurn(){
+function botTurn() {
 
-    if(emptySpace !== 0){
+    if (emptySpace !== 0) {
         let random = null;
         let button = null;
 
@@ -36,8 +44,8 @@ function botTurn(){
         button.style.color = "red";
         button.textContent = "X";
         button.setAttribute("disabled", "");
-        if (button.className !== "game_cell game-cell-notallowed") {
-            button.className = "game_cell game-cell-notallowed";
+        if (button.className !== "game-cell game-cell-notallowed") {
+            button.className = "game-cell game-cell-notallowed";
         }
         emptySpace--;
     }
@@ -45,70 +53,62 @@ function botTurn(){
     checkWin();
 }
 
-function checkWin(){
-    let arr = [];
-
-    for(let i = 1; i <= 9; i++){
-        arr.push(document.getElementById(`cell_${i}`));
-    }
+function checkWin() {
 
     //VERTICAL CASES
-
-    //column 1
-    if (arr[0].textContent === arr[3].textContent && arr[0].textContent === arr[6].textContent){
-        winner = arr[0].textContent;
-    }
-    //column 2
-    if (arr[1].textContent === arr[4].textContent && arr[1].textContent === arr[7].textContent) {
-        winner = arr[1].textContent;
-    }
-    //column 3
-    if (arr[2].textContent === arr[5].textContent && arr[2].textContent === arr[8].textContent) {
-        winner = arr[2].textContent;
+    for (let i = 0; i <= 2; i++) {
+        if (buttons[i].textContent === buttons[i + 3].textContent && buttons[i].textContent === buttons[i + 6].textContent) {
+            winner = buttons[i].textContent;
+        }
     }
 
     //HORIZONTAL CASES
-
-    //column 1
-    if (arr[0].textContent === arr[1].textContent && arr[0].textContent === arr[2].textContent) {
-        winner = arr[0].textContent;
-    }
-    //column 2
-    else if (arr[3].textContent === arr[4].textContent && arr[3].textContent === arr[5].textContent) {
-        winner = arr[3].textContent;
-    }
-    //column 3
-    else if (arr[6].textContent === arr[7].textContent && arr[6].textContent === arr[8].textContent) {
-        winner = arr[6].textContent;
+    for (let i = 0; i <= 6; i += 3) {
+        if (buttons[i].textContent === buttons[i + 1].textContent && buttons[i].textContent === buttons[i + 2].textContent) {
+            winner = buttons[i].textContent;
+        }
     }
 
     //DIAGONAL CASES
-    else if (arr[0].textContent === arr[4].textContent && arr[0].textContent === arr[8].textContent) {
-        winner = arr[0].textContent;
-    }
-    //column 2
-    else if (arr[2].textContent === arr[4].textContent && arr[2].textContent === arr[6].textContent) {
-        winner = arr[2].textContent;
+    if (buttons[0].textContent === buttons[4].textContent && buttons[0].textContent === buttons[8].textContent) {
+        winner = buttons[0].textContent;
     }
 
-    gameOver(arr);
+    if (buttons[2].textContent === buttons[4].textContent && buttons[2].textContent === buttons[6].textContent) {
+        winner = buttons[2].textContent;
+    }
+
+
+    console.log(emptySpace, winner);
+    if (winner === "X" || winner === "O") {
+        gameOver();
+    }
+
+    else if (emptySpace === 0 && winner === "") {
+        gameOver();
+    }
 }
 
-function gameOver(arr){
+function gameOver() {
+
     const heading = document.getElementById("winner-heading");
 
-    if(winner === "O"){
+    if (winner === "O") {
         heading.style.color = "green";
         heading.textContent = "You Win";
     }
 
-    if (winner === "X") {
+    else if (winner === "X") {
         heading.style.color = "red";
         heading.textContent = "You Lose";
     }
 
-    arr.forEach(button => {
+    else {
+        heading.style.color = "white";
+        heading.textContent = "Draw";
+    }
+
+    buttons.forEach(button => {
         button.setAttribute("disabled", "");
     })
 }
-
