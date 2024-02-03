@@ -182,8 +182,9 @@ body {
 
 .w-container-2> :nth-child(2) {
     position: relative;
-    font-size: 2rem;
+    font-size: 1.3rem;
     left: 20%;
+    text-align: center;
 }
 
 .w-container-2> :nth-child(2)>span {
