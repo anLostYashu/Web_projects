@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.jpg">
+
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search_field">
+        <button id="search_button">Search</button>
+    </div>
+
+    <div class="weather-container">
+        <div class="w-container-1">
+            <p>City:&nbsp;<span id="city_name"></span></p>
+            <p>Region:&nbsp;<span id="region_name"></span></p>
+            <p>Country:&nbsp;<span id="country_name"></span></p>
+            <p>Time: <span id="localtime"></span></p>
+        </div>
+
+        <div class="w-container-2">
+            <p>Condition: <span id="condition"></span></p>
+        </div>
+
+        <div class="w-container-3">
+            <p>Temperature:&nbsp;<span id="temp_c"></span>°C | <span id="temp_f"></span>°F</p>
+            <p>Wind Speed:&nbsp;<span id="wind_kph"></span>kph | <span id="wind_mph"></span>mph</p>
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Air Quality Index: <span id="aqi"></span></p>
+        </div>
+    </div>
+
+    <div class="weather-error-container" id="error_div">
+        <h1>Error:</h1>
+    </div>
+</body>
+</html>
