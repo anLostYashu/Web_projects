@@ -19,7 +19,7 @@ async function playerTurn(val) {
 
     emptySpaces--;
 
-    findWinner();
+    await findWinner();
     await botTurn();
 }
 
@@ -39,7 +39,7 @@ async function botTurn() {
     }
 }
 
-function findWinner() {
+async function findWinner() {
     //VERTICAL CASES
     for (let i = 0; i <= 2; i++) {
         if (buttons[i].textContent === buttons[i + 3].textContent && buttons[i].textContent === buttons[i + 6].textContent) {
