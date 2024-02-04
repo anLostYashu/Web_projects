@@ -1,60 +1,44 @@
-let emptySpace = 9;
-let winner;
+const buttons = document.querySelectorAll(".cell-buttons");
+const gameHeading = document.getElementById("winner_heading");
 
-//assigning buttons to array
-let buttons = [];
-for (let i = 1; i <= 9; i++) {
-    buttons.push(document.getElementById(`cell_${i}`));
-}
+let emptySpaces = 9;
+const PLAYER = "O";
+const BOT = "X";
+let winner = "";
 
-//for random first move
-let random = Math.floor(Math.random() * 2);
-if (random == 1) {
+if (Math.floor(Math.random() * 2) === 0) {
     botTurn();
 }
 
-function playerTurn(val) {
+async function playerTurn(val) {
+    buttons[val].textContent = PLAYER;
+    buttons[val].classList.add("player-cell");
+    buttons[val].setAttribute("disabled", "");
+    emptySpaces--;
 
-    let button = document.getElementById(`cell_${val}`);
-
-    button.style.color = "green";
-    button.textContent = "O";
-    button.setAttribute("disabled", "");
-    if (button.className !== "game-cell game-cell-notallowed") {
-        button.className = "game-cell game-cell-notallowed";
-    }
-    emptySpace--;
-
-    checkWin();
-    botTurn();
+    await botTurn();
+    findWinner();
 }
 
-function botTurn() {
-
-    if (emptySpace !== 0) {
-        let random = null;
-        let button = null;
+async function botTurn() {
+    if (emptySpaces !== 0) {
+        let random;
 
         do {
-            random = Math.floor(Math.random() * 9) + 1;
-            button = document.getElementById(`cell_${random}`);
+            random = Math.floor(Math.random() * 9);
 
-        } while (button.hasAttribute("disabled"));
+        } while (buttons[random].hasAttribute("disabled"));
 
-        button.style.color = "red";
-        button.textContent = "X";
-        button.setAttribute("disabled", "");
-        if (button.className !== "game-cell game-cell-notallowed") {
-            button.className = "game-cell game-cell-notallowed";
-        }
-        emptySpace--;
+        buttons[random].textContent = BOT;
+        buttons[random].classList.add("bot-cell");
+        buttons[random].setAttribute("disabled", "");
+        emptySpaces--;
+
+        findWinner();
     }
-
-    checkWin();
 }
 
-function checkWin() {
-
+function findWinner() {
     //VERTICAL CASES
     for (let i = 0; i <= 2; i++) {
         if (buttons[i].textContent === buttons[i + 3].textContent && buttons[i].textContent === buttons[i + 6].textContent) {
@@ -78,37 +62,29 @@ function checkWin() {
         winner = buttons[2].textContent;
     }
 
-
-    console.log(emptySpace, winner);
-    if (winner === "X" || winner === "O") {
-        gameOver();
-    }
-
-    else if (emptySpace === 0 && winner === "") {
-        gameOver();
+    if (winner === BOT || winner === PLAYER || emptySpaces === 0) {
+        displayWinner();
     }
 }
 
-function gameOver() {
-
-    const heading = document.getElementById("winner-heading");
-
-    if (winner === "O") {
-        heading.style.color = "green";
-        heading.textContent = "You Win";
+function displayWinner() {
+    if (winner === PLAYER) {
+        gameHeading.textContent = "You Win!";
+        gameHeading.style.color = "green";
     }
-
-    else if (winner === "X") {
-        heading.style.color = "red";
-        heading.textContent = "You Lose";
+    else if (winner === BOT) {
+        gameHeading.textContent = "You Lose!";
+        gameHeading.style.color = "red";
     }
-
-    else {
-        heading.style.color = "white";
-        heading.textContent = "Draw";
+    else if (emptySpaces === 0 && winner === "") {
+        gameHeading.textContent = "Draw!";
+        gameHeading.style.color = "grey";
     }
 
     buttons.forEach(button => {
         button.setAttribute("disabled", "");
+        button.style.cursor = "not-allowed";
     })
+
+    document.getElementById("alert_message").style.display = "block";
 }
