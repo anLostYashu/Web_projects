@@ -20,10 +20,10 @@ async function playerTurn(val) {
     emptySpaces--;
 
     await findWinner();
-    await botTurn();
+    botTurn();
 }
 
-async function botTurn() {
+function botTurn() {
     if (emptySpaces !== 0) {
 
         let random = Math.floor(Math.random() * pendingMoves.length);
