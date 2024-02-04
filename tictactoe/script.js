@@ -16,8 +16,8 @@ async function playerTurn(val) {
     buttons[val].setAttribute("disabled", "");
     emptySpaces--;
 
-    await botTurn();
     findWinner();
+    await botTurn();
 }
 
 async function botTurn() {
@@ -62,6 +62,7 @@ function findWinner() {
         winner = buttons[2].textContent;
     }
 
+    
     if (winner === BOT || winner === PLAYER || emptySpaces === 0) {
         displayWinner();
     }
