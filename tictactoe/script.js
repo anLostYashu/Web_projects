@@ -11,19 +11,22 @@ if (Math.floor(Math.random() * 2) === 0) {
     botTurn();
 }
 
-async function playerTurn(val) {
+function playerTurn(val) {
     buttons[val].textContent = PLAYER;
     buttons[val].setAttribute("disabled", "");
     buttons[val].classList.add("player-cell");
-    pendingMoves.splice(pendingMoves.indexOf(buttons[val]), 1);
+
+    let index = pendingMoves.indexOf(buttons[val]);
+    pendingMoves.splice(index, 1);
 
     emptySpaces--;
 
-    await findWinner();
+    findWinner();
     botTurn();
 }
 
 function botTurn() {
+
     if (emptySpaces !== 0) {
 
         let random = Math.floor(Math.random() * pendingMoves.length);
@@ -39,7 +42,7 @@ function botTurn() {
     }
 }
 
-async function findWinner() {
+function findWinner() {
     //VERTICAL CASES
     for (let i = 0; i <= 2; i++) {
         if (buttons[i].textContent === buttons[i + 3].textContent && buttons[i].textContent === buttons[i + 6].textContent) {
@@ -85,7 +88,7 @@ function displayWinner() {
 
     pendingMoves.forEach(button => {
         button.setAttribute("disabled", "");
-        button.style.cursor = "not-allowed";
+        emptySpaces = 0;
     })
 
     document.getElementById("alert_message").style.display = "block";
