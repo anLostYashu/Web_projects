@@ -122,6 +122,7 @@ body {
     justify-content: space-between;
 
     display: none;
+    user-select: none;
 }
 
 .weather-container div {
