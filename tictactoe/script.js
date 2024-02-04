@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll(".cell-buttons");
+let pendingMoves = Array.from(buttons);
 const gameHeading = document.getElementById("winner_heading");
 
 let emptySpaces = 9;
@@ -12,8 +13,10 @@ if (Math.floor(Math.random() * 2) === 0) {
 
 async function playerTurn(val) {
     buttons[val].textContent = PLAYER;
-    buttons[val].classList.add("player-cell");
     buttons[val].setAttribute("disabled", "");
+    buttons[val].classList.add("player-cell");
+    pendingMoves.splice(pendingMoves.indexOf(buttons[val]), 1);
+
     emptySpaces--;
 
     findWinner();
@@ -22,16 +25,14 @@ async function playerTurn(val) {
 
 async function botTurn() {
     if (emptySpaces !== 0) {
-        let random;
 
-        do {
-            random = Math.floor(Math.random() * 9);
+        let random = Math.floor(Math.random() * pendingMoves.length);
 
-        } while (buttons[random].hasAttribute("disabled"));
+        pendingMoves[random].textContent = BOT;
+        pendingMoves[random].setAttribute("disabled", "");
+        pendingMoves[random].classList.add("bot-cell");
+        pendingMoves.splice(random, 1);
 
-        buttons[random].textContent = BOT;
-        buttons[random].classList.add("bot-cell");
-        buttons[random].setAttribute("disabled", "");
         emptySpaces--;
 
         findWinner();
@@ -62,7 +63,7 @@ function findWinner() {
         winner = buttons[2].textContent;
     }
 
-    
+
     if (winner === BOT || winner === PLAYER || emptySpaces === 0) {
         displayWinner();
     }
@@ -82,7 +83,7 @@ function displayWinner() {
         gameHeading.style.color = "grey";
     }
 
-    buttons.forEach(button => {
+    pendingMoves.forEach(button => {
         button.setAttribute("disabled", "");
         button.style.cursor = "not-allowed";
     })
