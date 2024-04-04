@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap");
+
+:root {
+    /* --primary-col: #3b313c;
+    --secondary-col: #8b5760;
+    --tertiary-col: #edd8bd; */
+
+    --primary-col: hsl(22, 21%, 45%);
+    --secondary-col: hsl(23, 29%, 20%);
+    --tertiary-col: hsl(23, 38%, 82%);
+    --accent-col: hsl(120, 13%, 32%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Heebo", sans-serif;
+    font-weight: 300;
+}
+
+/* Navbar */
+
+.nav-container {
+    display: flex;
+    background-color: var(--tertiary-col);
+}
+
+.nav-brand-div {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px;
+    width: 30%;
+    text-decoration: overline var(--accent-col);
+
+    display: flex;
+    justify-content: center;
+}
+
+.nav-items-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#current_page {
+    color: var(--accent-col);
+}
+
+.nav-items-div a {
+    font-size: 1.1rem;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-items-div a:hover {
+    color: var(--accent-col);
+}
+
+#login_button_tag {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+}
+
+/* Main-Banner */
+
+#banner_section {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../assets/cup-coffee-table-front-street-with-city-lights-background.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.banner-info {
+    color: white;
+    position: relative;
+    top: 10em;
+    margin-left: 4em;
+}
+
+.banner-info-span {
+    font-family: sans-serif;
+    font-size: 5rem;
+}
+
+.banner-info-one {
+    font-size: 1.4rem;
+    font-weight: 200;
+}
+
+.banner-info-two {
+    margin-top: 20px;
+}
+
+.banner-info-button {
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 12px 25px;
+    margin-top: 3em;
+    margin-right: 1em;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.banner-info-button:hover {
+    animation: ease-out 0.3s changeButtonColor;
+    background-color: var(--accent-col);
+}
+
+/* Deals Bar */
+.deals-side-scroller {
+    background-color: var(--accent-col);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: white;
+    font-size: 1.3rem;
+    padding: 18px 10px;
+}
+
+.deals-side-scroller button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: 100;
+    color: white;
+    cursor: pointer;
+}
+
+/* Advertisement Section */
+.section-div {
+    display: flex;
+}
+
+.section-div-info {
+    padding: 3%; /* comment this if using flex to pad */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-div-image {
+    width: 50%;
+}
+
+.section-div-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.section-div-info div {
+    width: 70%;
+}
+
+.advertisement_heading {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 5rem;
+    font-weight: 500;
+}
+
+.advertisement_para {
+    margin-top: 1em;
+    font-size: 1.2rem;
+}
+
+.advertisement_lorem {
+    margin-top: 2.1em;
+}
+
+.advertisement-button {
+    margin-top: 25px;
+    background-color: transparent;
+    font-size: 1.05rem;
+    font-weight: 250;
+    border: 1px solid black;
+    padding: 10px 35px;
+    cursor: pointer;
+}
+
+.advertisement-button:hover {
+    animation: ease-out 0.3s changeButtonColor;
+    border: 1px solid transparent;
+    background-color: var(--accent-col);
+    color: white;
+    border-radius: 2px;
+}
+
+/* Address Info Section */
+#address_info_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tertiary-col);
+    padding: 4.5em 0;
+}
+
+.address-heading-container {
+    font-family: fantasy;
+    font-size: 3.8rem;
+    font-weight: bold;
+}
+
+.address-info-container {
+    margin-top: 2.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-info-container h2 {
+    font-size: 1.5rem;
+    font-weight: 350;
+}
+
+.address-info-container p {
+    line-height: 2rem;
+}
+
+.address-info-container > div {
+    text-align: center;
+}
+
+.address-info-container-spacer-div {
+    border-left: 1px solid black;
+}
+
+/* Contact Us Section */
+#contact_us_section {
+    background-color: var(--accent-col);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3em;
+    color: white;
+}
+
+.contact-us-heading {
+    font-size: 1.7rem;
+}
+
+.email-info-div > div {
+    display: flex;
+
+    width: min-content;
+}
+
+.email-info-div > div div {
+    display: flex;
+    border: 1px solid white;
+}
+
+#email_field {
+    padding: 10px;
+    width: 220px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+#email_field:hover {
+    border: 1px solid white;
+    background-color: hsl(120, 13%, 50%);
+}
+
+#email_join_button {
+    background-color: transparent;
+    color: white;
+    padding: 0 25px;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+}
+
+#email_join_button:hover {
+    background-color: hsl(120, 13%, 40%);
+}
+
+.contact_us_socials_container h1 {
+    font-size: 3rem;
+}
+
+.contact_us_socials_container a {
+    color: white;
+    text-decoration: none;
+}
+
+.copyright-container {
+    padding: 7px 0;
+    text-align: center;
+}
+
+/* ANIMATIONS */
+@keyframes changeButtonColor {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: var(--accent-col);
+        color: white;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 823px) {
+    #contact_us_section {
+        display: block;
+    }
+
+    #contact_us_section > div {
+        margin-top: 3em;
+    }
+}
+
+@media (max-width: 750px) {
+    .banner-info-span {
+        font-size: 4rem;
+    }
+
+    .advertisement_heading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 613px) {
+    .nav-container {
+        display: block;
+    }
+
+    .nav-items-div {
+        padding-bottom: 1em;
+    }
+
+    .banner-info-span {
+        font-size: 3rem;
+    }
+}

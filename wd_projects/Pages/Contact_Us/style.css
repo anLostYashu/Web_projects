@@ -1,0 +1,117 @@
+/* intro section */
+#intro_section > div > h1 {
+    font-size: 4rem; /* let's connect heading */
+}
+
+/* Contact Us Form Section */
+#contact_us_info_section {
+    display: flex;
+    padding: 3.5em 0;
+}
+
+#contact_us_info_section > div {
+    width: 50%;
+}
+
+.contact_us_form_container {
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_us_form_container label {
+    font-size: 0.9rem;
+}
+
+.contact_us_form_container input {
+    width: 45%;
+    padding: 5px;
+    border: 1px solid black;
+    outline: none;
+}
+
+#lname {
+    float: right;
+}
+
+#lname_label {
+    margin-left: 105px;
+}
+
+#email {
+    width: 100%;
+}
+
+#message {
+    border: 1px solid black;
+    resize: none;
+    padding: 5px;
+    width: 100%;
+}
+
+#send_button {
+    margin-top: 2em;
+    width: 100%;
+    padding: 7px 0;
+    background-color: var(--accent-col);
+    border: 1px solid var(--accent-col);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#send_button:hover {
+    animation: ease-out 0.2s changeColorWhite;
+    background-color: transparent;
+    color: black;
+}
+/*  */
+.contact_us_address_info div img {
+    height: 40px;
+    margin-bottom: 1em;
+}
+
+.contact_us_address_info > div {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 6em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.contact_us_address_heading {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+@keyframes changeColorWhite {
+    from {
+        background-color: var(--accent-col);
+    }
+    to {
+        background-color: transparent;
+        color: black;
+    }
+}
+
+@media (max-width: 790px) {
+    #contact_us_info_section {
+        display: block;
+    }
+
+    .contact_us_form_container {
+        border: none;
+        margin: 0 auto;
+    }
+
+    .contact_us_address_info {
+        display: none;
+    }
+}
+
+@media (max-width: 540px) {
+    #lname_label {
+        margin-left: 60px;
+    }
+}
